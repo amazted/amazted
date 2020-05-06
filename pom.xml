@@ -11,6 +11,7 @@
 	<groupId>com.tone</groupId>
 	<artifactId>amazted</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<!--<packaging>war</packaging> -->
 	<name>amazted</name>
 	<description>Demo project for Spring Boot</description>
 
@@ -108,13 +109,26 @@
 		</dependency>
 	</dependencies>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/webapp</directory>
+                <targetPath>META-INF/resources</targetPath>
+                <includes>
+                    <include>**/*.jsp</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>1.4.2.RELEASE</version>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
